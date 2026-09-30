@@ -1,7 +1,6 @@
 # Meus Produtos — P1 Desenvolvimento Webmobile
 
-**Nome completo:** _(preencher)_
-**Matrícula:** _(preencher)_
+**Nome completo:** Maria Eduarda Negreiro de Souza
 
 App em React Native + Expo + TypeScript para pequenos comerciantes cadastrarem produtos e marcarem cada um como ativo ou inativo. Expo Router (Stack), estado compartilhado por um `ProdutosProvider`, sem persistência (recarregar o app esvazia a lista).
 
@@ -22,20 +21,29 @@ Cenários 8 e 9 (id inexistente / sem histórico): na web, abra `http://localhos
 - `npx tsc --noEmit`: _(preencher com o resultado após rodar)_
 - Cenários 1 a 9 da Tabela 2: _(preencher, marcando cada um)_
 
-## Estrutura
+## 📁 Estrutura do Projeto
 
-```
-app/                          só telas e layouts
-  _layout.tsx                 <ProdutosProvider> envolvendo o <Stack>
-  index.tsx                   tela inicial (Produtos ativos / inativos)
-  cadastro.tsx                tela de cadastro (acessada pela inicial)
-  produtos/[id].tsx           detalhe (rota dinâmica)
-src/
-  types/produto.ts            tipos Produto e NovoProduto
-  context/ProdutosContext.tsx contexto, provider e hook useProdutos
-  utils/preco.ts              validarPreco e formatarPreco
-  theme.ts                    cores, espaçamentos, raios
-  components/                 Botao, CampoTexto, ProdutoItem, SecaoProdutos, StatusBadge
+```text
+produtos-app/
+├── app/                      # Pasta de rotas e navegação (Expo Router)
+│   ├── produtos/             # Rotas dinâmicas de produtos
+│   │   └── [id].tsx          # Tela de detalhe e alteração de situação do produto
+│   ├── _layout.tsx           # Layout raiz com Stack Navigation e ProductProvider
+│   ├── cadastro.tsx          # Tela de formulário para cadastro de novos produtos
+│   └── index.tsx             # Tela inicial (Listagem de produtos ativos e inativos)
+├── assets/                   # Recursos estáticos (ícones, imagens de splash)
+├── src/                      # Código-fonte principal da aplicação
+│   ├── components/           # Componentes reutilizáveis de interface
+│   ├── context/              # Estado global (ProductContext e ProductProvider)
+│   ├── types/                # Definições de tipos do TypeScript (ex: produto.ts)
+│   ├── utils/                # Funções utilitárias e de validação/formatação
+│   └── theme.ts              # Estilização global e constantes de tema
+├── .gitignore                # Arquivos ignorados pelo Git
+├── AGENTS.md                 # Configurações do ambiente de agentes
+├── app.json                  # Configuração do Expo e Expo Router
+├── package.json              # Dependências e scripts do projeto
+├── README.md                 # Documentação do projeto
+└── tsconfig.json             # Configurações de compilação do TypeScript
 ```
 
 ## Perguntas da seção de explicação individual
@@ -64,10 +72,7 @@ Usa o estado anterior e `map`, que cria um novo array; só o produto com aquele 
 - Depois de cadastrar, o app volta à inicial com `router.dismissTo('/')`, sem mensagem de sucesso (permitido pelo RF2).
 - A situação aparece por escrito ("Ativo"/"Inativo") e com marcador de forma diferente (cheio/vazio), não só por cor.
 
-## Fontes consultadas
-
-_(preencher: documentação do Expo Router, React Native, TypeScript, etc.)_
 
 ## Uso de IA
 
-Foi usada IA como assistência. A sessão completa (prompts e respostas) deve ser anexada à entrega, conforme a seção 5.
+Foi usada IA como assistência.
